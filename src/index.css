@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+:root {
+  --gold: #d4af37;
+  --cream: #fceea7;
+}
+
+body {
+  margin: 0;
+  background: #000000;
+  overflow: hidden;
+  font-family: 'Times New Roman', serif;
+  color: var(--cream);
+}
+
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ease-out;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top: 1px solid var(--gold);
+  animation: spin 1s linear infinite;
+}
+
+.loader-text {
+  margin-top: 20px;
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+#ui-layer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 10;
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 56px;
+  margin: 0;
+  background: linear-gradient(to bottom, #ffffff, var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+}
+
+.upload-wrapper {
+  margin-top: auto;
+  margin-bottom: 10px;
+  pointer-events: auto;
+}
+
+.upload-btn {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 12px 30px;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.upload-btn:hover {
+  background: rgba(212, 175, 55, 0.2);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.hint-text {
+  font-size: 14px;
+  color: rgba(252, 238, 167, 0.6);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.ui-hidden {
+  opacity: 0;
+  pointer-events: none !important;
+}
+
+#webcam-container {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+}
